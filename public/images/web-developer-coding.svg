@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="100%" height="100%" fill="#ffffff" stroke="none" />
+  <!-- Hair & Head Contour (Continuous Line Art) -->
+  <path d="M195 105 C 182 105 174 116 172 135 C 168 152 174 165 180 178 C 190 200 205 208 215 208 C 225 208 238 200 246 178 C 252 165 258 150 254 135 C 252 116 244 105 230 105 C 220 105 205 106 195 105 Z" />
+  <path d="M174 138 C 182 125 196 116 215 116 C 228 116 242 124 250 138" />
+  <path d="M200 106 C 210 95 228 96 238 106" />
+
+  <!-- Glasses -->
+  <rect x="180" y="152" width="26" height="22" rx="5" stroke-width="3.5" />
+  <rect x="220" y="152" width="26" height="22" rx="5" stroke-width="3.5" />
+  <line x1="206" y1="162" x2="220" y2="162" stroke-width="3.5" />
+
+  <!-- Neck & Collar -->
+  <path d="M200 206 L 200 235 L 180 250" />
+  <path d="M226 206 L 226 235 L 246 250" />
+  <path d="M200 235 L 213 252 L 226 235" />
+  <line x1="213" y1="252" x2="213" y2="295" />
+
+  <!-- Shoulders & Torso -->
+  <path d="M180 250 C 150 265 140 325 130 350" />
+  <path d="M246 250 C 275 265 285 320 295 348" />
+
+  <!-- Laptop Screen with Code Brackets -->
+  <rect x="150" y="275" width="125" height="85" rx="5" fill="#ffffff" stroke-width="3.5" />
+  <!-- Code brackets < / > -->
+  <path d="M188 312 L 178 322 L 188 332" stroke-width="4.5" />
+  <line x1="205" y1="308" x2="198" y2="336" stroke-width="4.5" />
+  <path d="M216 312 L 226 322 L 216 332" stroke-width="4.5" />
+
+  <!-- Hands & Mouse -->
+  <!-- Hand typing on mouse -->
+  <path d="M125 352 C 122 342 135 330 148 334 C 158 338 152 355 145 362 Z" />
+  <path d="M135 342 C 142 342 142 356 135 358" />
+  <!-- Continuous cord flow -->
+  <path d="M110 360 C 125 362 132 360 145 362" />
+  <path d="M280 348 C 290 330 305 325 315 345 C 322 355 332 338 345 348" />
+</svg>

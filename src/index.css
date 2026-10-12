@@ -1,0 +1,474 @@
+@import "./local-fonts.css";
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-input: var(--input);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-accent-green: var(--accent-green);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-star-btn: star-btn calc(var(--duration, 3) * 1s) linear infinite;
+}
+
+@keyframes star-btn {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+/* Ensure proper word breaks so words do not break in the middle across lines */
+div[data-state] div,
+div[data-state] p,
+div[data-radix-accordion-content],
+div[data-radix-accordion-content] > div,
+div[data-radix-accordion-content] div,
+div[data-radix-accordion-content] p,
+[data-radix-accordion-content],
+[data-radix-accordion-content] > div,
+[data-radix-accordion-content] div,
+[data-radix-accordion-content] p,
+[role="region"],
+[role="region"] > div,
+[role="region"] div,
+[role="region"] p,
+[id^="radix-"],
+[id^="radix-"] > div,
+[id^="radix-"] div,
+[id^="radix-"] p,
+[id^="radix-"] span,
+div#root section:nth-of-type(1) span,
+div#root section:nth-of-type(1) p,
+div#root section:nth-of-type(4) div,
+div#root section:nth-of-type(4) p,
+div#root section:nth-of-type(4) span {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+}
+
+:root {
+  --background: #F5F5F5;
+  --foreground: #171717;
+  --bg-black-smoke: #F5F5F5;
+  --accent-green: #c5f83a;
+  --primary: #171717;
+  --primary-foreground: #ffffff;
+  --input: #e5e5e5;
+  --accent: rgba(0, 0, 0, 0.06);
+  --accent-foreground: #171717;
+  --destructive: #ef4444;
+}
+
+.dark, [data-theme="dark"] {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #171717;
+  --input: #333333;
+  --accent: rgba(255, 255, 255, 0.12);
+  --accent-foreground: #ffffff;
+  --destructive: #f87171;
+}
+
+html, body {
+  background-color: #F5F5F5;
+  color: #1a1a1a;
+  transition: background-color 0.5s ease-in-out;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+html.dark,
+html[data-theme="dark"],
+html.dark body,
+html[data-theme="dark"] body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+@font-face {
+  font-family: 'Fudd Regular';
+  src: url('/fonts/fudd-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fudd';
+  src: url('/fonts/fudd-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fudd Italic';
+  src: url('/fonts/fudd-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Always Classy';
+  src: url('/fonts/always-classy.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Always Classy';
+  src: url('/fonts/always-classy.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AlwaysClassy';
+  src: url('/fonts/always-classy.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AlwaysClassy';
+  src: url('/fonts/always-classy.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+.font-fudd-regular {
+  font-family: 'Fudd Regular', 'Fudd', sans-serif;
+  font-weight: 400;
+}
+
+.font-hubot-sans {
+  font-family: 'Hubot Sans', 'HubotSans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.font-always-classy {
+  font-family: 'Always Classy', 'AlwaysClassy', 'Bodoni Moda', 'Playfair Display', serif;
+}
+
+.font-manrope-light {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 300;
+}
+
+.font-manrope-regular {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+}
+
+.font-display {
+  font-family: 'Syne', -apple-system, sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-tiny-light {
+  font-family: 'Tiny Light', 'Tiny', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 300;
+}
+
+@keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+  }
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);
+  }
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);
+  }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+  }
+}
+
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
+.animate-shimmer-slide {
+  animation: shimmer-slide var(--speed, 3s) ease-in-out infinite alternate;
+}
+
+.animate-spin-around {
+  animation: spin-around calc(var(--speed, 3s) * 2) infinite linear;
+}
+
+/* Particle Button Styles */
+.particle-button {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  background: radial-gradient(65.28% 65.28% at 50% 100%,
+      rgba(34, 211, 238, 0.8) 0%,
+      rgba(34, 211, 238, 0) 100%),
+    linear-gradient(0deg, #2563eb, #2563eb);
+  border-radius: 0.6rem;
+  border: none;
+  outline: none;
+  padding: 7px 14px;
+  min-height: 34px;
+  min-width: 84px;
+}
+
+.particle-button::before,
+.particle-button::after {
+  content: "";
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.particle-button::before {
+  inset: 1px;
+  background: linear-gradient(177.95deg,
+      rgba(255, 255, 255, 0.19) 0%,
+      rgba(255, 255, 255, 0) 100%);
+  border-radius: calc(0.6rem - 1px);
+}
+
+.particle-button::after {
+  inset: 2px;
+  background: radial-gradient(65.28% 65.28% at 50% 100%,
+      rgba(34, 211, 238, 0.8) 0%,
+      rgba(34, 211, 238, 0) 100%),
+    linear-gradient(0deg, #2563eb, #2563eb);
+  border-radius: calc(0.6rem - 2px);
+}
+
+.particle-button:active {
+  transform: scale(0.95);
+}
+
+.particle-button .points_wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.particle-button .points_wrapper .point {
+  bottom: -10px;
+  position: absolute;
+  animation: floating-points infinite ease-in-out;
+  pointer-events: none;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 9999px;
+}
+
+@keyframes floating-points {
+  0% {
+    transform: translateY(0);
+  }
+
+  85% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-55px);
+    opacity: 0;
+  }
+}
+
+.particle-button .points_wrapper .point:nth-child(1) {
+  left: 10%;
+  opacity: 1;
+  animation-duration: 2.35s;
+  animation-delay: 0.2s;
+}
+
+.particle-button .points_wrapper .point:nth-child(2) {
+  left: 30%;
+  opacity: 0.7;
+  animation-duration: 2.5s;
+  animation-delay: 0.5s;
+}
+
+.particle-button .points_wrapper .point:nth-child(3) {
+  left: 25%;
+  opacity: 0.8;
+  animation-duration: 2.2s;
+  animation-delay: 0.1s;
+}
+
+.particle-button .points_wrapper .point:nth-child(4) {
+  left: 44%;
+  opacity: 0.6;
+  animation-duration: 2.05s;
+}
+
+.particle-button .points_wrapper .point:nth-child(5) {
+  left: 50%;
+  opacity: 1;
+  animation-duration: 1.9s;
+}
+
+.particle-button .points_wrapper .point:nth-child(6) {
+  left: 75%;
+  opacity: 0.5;
+  animation-duration: 1.5s;
+  animation-delay: 1.5s;
+}
+
+.particle-button .points_wrapper .point:nth-child(7) {
+  left: 88%;
+  opacity: 0.9;
+  animation-duration: 2.2s;
+  animation-delay: 0.2s;
+}
+
+.particle-button .points_wrapper .point:nth-child(8) {
+  left: 58%;
+  opacity: 0.8;
+  animation-duration: 2.25s;
+  animation-delay: 0.2s;
+}
+
+.particle-button .points_wrapper .point:nth-child(9) {
+  left: 98%;
+  opacity: 0.6;
+  animation-duration: 2.6s;
+  animation-delay: 0.1s;
+}
+
+.particle-button .points_wrapper .point:nth-child(10) {
+  left: 65%;
+  opacity: 1;
+  animation-duration: 2.5s;
+  animation-delay: 0.2s;
+}
+
+.particle-button .inner {
+  z-index: 2;
+  gap: 4px;
+  position: relative;
+  width: 100%;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.2s ease-in-out;
+}
+
+.particle-button .inner svg.icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+  stroke: white;
+  fill: none;
+}
+
+.particle-button:hover svg.icon {
+  transform: translateX(2px);
+}
+
+.particle-button:hover svg.icon path {
+  animation: dash 0.8s linear forwards;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 0, 20;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 10, 10;
+    stroke-dashoffset: -5;
+  }
+
+  100% {
+    stroke-dasharray: 20, 0;
+    stroke-dashoffset: -10;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+
